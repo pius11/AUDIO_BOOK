@@ -1,7 +1,7 @@
-package com.dimata.demo.sekolah.demo_audio_book.services.dbHandler;
+package com.dimata.demo.audiobook.demo_audio_book.services.dbHandler;
 
-import com.dimata.demo.sekolah.demo_audio_book.core.api.DbHandlerBase;
-import com.dimata.demo.sekolah.demo_audio_book.models.table.DataUser;
+import com.dimata.demo.audiobook.demo_audio_book.core.api.DbHandlerBase;
+import com.dimata.demo.audiobook.demo_audio_book.models.table.DataUser;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.r2dbc.repository.R2dbcRepository;

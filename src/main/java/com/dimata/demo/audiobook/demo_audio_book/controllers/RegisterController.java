@@ -1,9 +1,9 @@
-package com.dimata.demo.sekolah.demo_audio_book.controllers;
+package com.dimata.demo.audiobook.demo_audio_book.controllers;
 
-import com.dimata.demo.sekolah.demo_audio_book.core.search.CommonParam;
-import com.dimata.demo.sekolah.demo_audio_book.forms.RegisterForm;
-import com.dimata.demo.sekolah.demo_audio_book.models.table.Register;
-import com.dimata.demo.sekolah.demo_audio_book.services.api.RegisterApi;
+import com.dimata.demo.audiobook.demo_audio_book.core.search.CommonParam;
+import com.dimata.demo.audiobook.demo_audio_book.forms.RegisterForm;
+import com.dimata.demo.audiobook.demo_audio_book.models.table.Register;
+import com.dimata.demo.audiobook.demo_audio_book.services.api.RegisterApi;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

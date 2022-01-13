@@ -1,11 +1,11 @@
-package com.dimata.demo.sekolah.demo_audio_book.services.api;
+package com.dimata.demo.audiobook.demo_audio_book.services.api;
 
-import com.dimata.demo.sekolah.demo_audio_book.core.search.CommonParam;
-import com.dimata.demo.sekolah.demo_audio_book.core.search.SelectQBuilder;
-import com.dimata.demo.sekolah.demo_audio_book.core.search.WhereQuery;
-import com.dimata.demo.sekolah.demo_audio_book.forms.RegisterForm;
-import com.dimata.demo.sekolah.demo_audio_book.models.table.Register;
-import com.dimata.demo.sekolah.demo_audio_book.services.crude.RegisterCrude;
+import com.dimata.demo.audiobook.demo_audio_book.core.search.CommonParam;
+import com.dimata.demo.audiobook.demo_audio_book.core.search.SelectQBuilder;
+import com.dimata.demo.audiobook.demo_audio_book.core.search.WhereQuery;
+import com.dimata.demo.audiobook.demo_audio_book.forms.RegisterForm;
+import com.dimata.demo.audiobook.demo_audio_book.models.table.Register;
+import com.dimata.demo.audiobook.demo_audio_book.services.crude.RegisterCrude;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.r2dbc.core.R2dbcEntityTemplate;

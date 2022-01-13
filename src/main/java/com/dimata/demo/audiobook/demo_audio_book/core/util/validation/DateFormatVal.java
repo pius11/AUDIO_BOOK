@@ -1,4 +1,4 @@
-package com.dimata.demo.sekolah.demo_data_siswa.core.util.validation;
+package com.dimata.demo.audiobook.demo_audio_book.core.util.validation;
 
 import org.springframework.validation.annotation.Validated;
 

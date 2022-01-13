@@ -1,7 +1,7 @@
-package com.dimata.demo.sekolah.demo_audio_book.services.crude;
+package com.dimata.demo.audiobook.demo_audio_book.services.crude;
 
-import com.dimata.demo.sekolah.demo_audio_book.models.table.DataUser;
-import com.dimata.demo.sekolah.demo_audio_book.services.dbHandler.DataUserDbhandler;
+import com.dimata.demo.audiobook.demo_audio_book.models.table.DataUser;
+import com.dimata.demo.audiobook.demo_audio_book.services.dbHandler.DataUserDbhandler;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

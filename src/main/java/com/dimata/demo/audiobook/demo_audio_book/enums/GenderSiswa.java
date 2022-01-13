@@ -1,4 +1,4 @@
-package com.dimata.demo.sekolah.demo_data_siswa.enums;
+package com.dimata.demo.audiobook.demo_audio_book.enums;
 
 import lombok.Getter;
 

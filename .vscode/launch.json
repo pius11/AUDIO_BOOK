@@ -16,6 +16,13 @@
             "type": "java",
             "name": "Launch DemoDataSiswaApplication",
             "request": "launch",
+            "mainClass": "com.dimata.demo.audiobook.demo_audio_book.DemoDataSiswaApplication",
+            "projectName": "demo_data_siswa"
+        },
+        {
+            "type": "java",
+            "name": "Launch DemoDataSiswaApplication",
+            "request": "launch",
             "mainClass": "com.dimata.demo.sekolah.demo_data_siswa.DemoDataSiswaApplication",
             "projectName": "demo_data_siswa"
         }

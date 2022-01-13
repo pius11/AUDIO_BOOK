@@ -2,7 +2,7 @@ spring:
   r2dbc:
     url: r2dbc:mysql://localhost:3306/audio_book
     username: admin
-    password: sayaganteng
+    password: piuswiprajana
   main:
     web-application-type: reactive
   application:

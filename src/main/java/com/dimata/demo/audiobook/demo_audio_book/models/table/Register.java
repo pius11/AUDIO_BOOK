@@ -1,14 +1,14 @@
-package com.dimata.demo.sekolah.demo_audio_book.models.table;
+package com.dimata.demo.audiobook.demo_audio_book.models.table;
 
-import static com.dimata.demo.sekolah.demo_audio_book.core.util.ManipulateUtil.changeItOrNot;
+import static com.dimata.demo.audiobook.demo_audio_book.core.util.ManipulateUtil.changeItOrNot;
 
 import java.time.LocalDate;
 import java.util.Objects;
 
-import com.dimata.demo.sekolah.demo_audio_book.core.api.UpdateAvailable;
-import com.dimata.demo.sekolah.demo_audio_book.core.util.GenerateUtil;
-import com.dimata.demo.sekolah.demo_audio_book.core.util.ManipulateUtil;
-import com.dimata.demo.sekolah.demo_audio_book.core.util.jackson.DateSerialize;
+import com.dimata.demo.audiobook.demo_audio_book.core.api.UpdateAvailable;
+import com.dimata.demo.audiobook.demo_audio_book.core.util.GenerateUtil;
+import com.dimata.demo.audiobook.demo_audio_book.core.util.ManipulateUtil;
+import com.dimata.demo.audiobook.demo_audio_book.core.util.jackson.DateSerialize;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;

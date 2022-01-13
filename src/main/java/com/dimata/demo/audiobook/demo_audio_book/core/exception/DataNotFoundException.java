@@ -1,4 +1,4 @@
-package com.dimata.demo.sekolah.demo_data_siswa.core.exception;
+package com.dimata.demo.audiobook.demo_audio_book.core.exception;
 
 /**
  * Gunakan exception ini jika data tidak tersedia di database.

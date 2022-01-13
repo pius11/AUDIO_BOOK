@@ -1,4 +1,4 @@
-package com.dimata.demo.sekolah.demo_data_siswa.core.util.location;
+package com.dimata.demo.audiobook.demo_audio_book.core.util.location;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreType;
 

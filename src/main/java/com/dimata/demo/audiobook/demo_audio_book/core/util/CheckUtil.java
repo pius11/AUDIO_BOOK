@@ -1,4 +1,4 @@
-package com.dimata.demo.sekolah.demo_data_siswa.core.util;
+package com.dimata.demo.audiobook.demo_audio_book.core.util;
 
 
 import java.time.format.DateTimeFormatter;
@@ -12,7 +12,7 @@ import javax.validation.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.dimata.demo.sekolah.demo_data_siswa.core.exception.FormatException;
+import com.dimata.demo.audiobook.demo_audio_book.core.exception.FormatException;
 
 @Component
 public class CheckUtil {

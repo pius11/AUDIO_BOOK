@@ -1,11 +1,11 @@
-package com.dimata.demo.sekolah.demo_data_siswa.core.api;
+package com.dimata.demo.audiobook.demo_audio_book.core.api;
 
 import java.time.Duration;
 
-import com.dimata.demo.sekolah.demo_data_siswa.core.exception.DataNotFoundException;
-import com.dimata.demo.sekolah.demo_data_siswa.core.search.CommonParam;
-import com.dimata.demo.sekolah.demo_data_siswa.core.util.CheckUtil;
-import com.dimata.demo.sekolah.demo_data_siswa.core.util.GenerateUtil;
+import com.dimata.demo.audiobook.demo_audio_book.core.exception.DataNotFoundException;
+import com.dimata.demo.audiobook.demo_audio_book.core.search.CommonParam;
+import com.dimata.demo.audiobook.demo_audio_book.core.util.CheckUtil;
+import com.dimata.demo.audiobook.demo_audio_book.core.util.GenerateUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;

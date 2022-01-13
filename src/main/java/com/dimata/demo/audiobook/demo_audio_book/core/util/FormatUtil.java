@@ -1,4 +1,4 @@
-package com.dimata.demo.sekolah.demo_data_siswa.core.util;
+package com.dimata.demo.audiobook.demo_audio_book.core.util;
 
 import java.time.Instant;
 import java.time.LocalDate;
@@ -9,7 +9,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.Objects;
 
-import com.dimata.demo.sekolah.demo_data_siswa.core.exception.FormatException;
+import com.dimata.demo.audiobook.demo_audio_book.core.exception.FormatException;
 
 /**
  * Alat bantu untuk melakukan format.

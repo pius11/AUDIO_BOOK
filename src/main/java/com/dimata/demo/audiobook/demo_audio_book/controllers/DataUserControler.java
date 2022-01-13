@@ -1,9 +1,9 @@
 package com.dimata.demo.audiobook.demo_audio_book.controllers;
 
-import com.dimata.demo.sekolah.demo_audio_book.core.search.CommonParam;
-import com.dimata.demo.sekolah.demo_audio_book.forms.DataUserForm;
-import com.dimata.demo.sekolah.demo_audio_book.models.table.DataUser;
-import com.dimata.demo.sekolah.demo_audio_book.services.api.DataUserApi;
+import com.dimata.demo.audiobook.demo_audio_book.core.search.CommonParam;
+import com.dimata.demo.audiobook.demo_audio_book.forms.DataUserForm;
+import com.dimata.demo.audiobook.demo_audio_book.models.table.DataUser;
+import com.dimata.demo.audiobook.demo_audio_book.services.api.DataUserApi;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -35,8 +35,8 @@ public class DataUserControler {
     }
 
     @GetMapping(path = BASE_URL + "/data_user")
-    public Flux<DataUser> maintainerGetAllDataUser(CommonParam param) {
-        return dataUserApi.getAllUser(param);
+    public Flux<DataUser> maintainerGetAlslDataUser(CommonParam param) {
+        return dataUserApi.getAllDataUser(param);
     }
 
     @GetMapping(path = BASE_URL + "/data_user/{user_code}")

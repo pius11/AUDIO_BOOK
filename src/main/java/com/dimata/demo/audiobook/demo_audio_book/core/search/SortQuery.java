@@ -1,4 +1,4 @@
-package com.dimata.demo.sekolah.demo_data_siswa.core.search;
+package com.dimata.demo.audiobook.demo_audio_book.core.search;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

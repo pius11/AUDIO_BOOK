@@ -1,10 +1,10 @@
-package com.dimata.demo.sekolah.demo_audio_book.forms;
+package com.dimata.demo.audiobook.demo_audio_book.forms;
 
 import java.time.LocalDate;
 
-import com.dimata.demo.sekolah.demo_audio_book.core.api.RecordAdapter;
-import com.dimata.demo.sekolah.demo_audio_book.core.util.jackson.DateDeserialize;
-import com.dimata.demo.sekolah.demo_audio_book.models.table.Register;
+import com.dimata.demo.audiobook.demo_audio_book.core.api.RecordAdapter;
+import com.dimata.demo.audiobook.demo_audio_book.core.util.jackson.DateDeserialize;
+import com.dimata.demo.audiobook.demo_audio_book.models.table.Register;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import lombok.Data;

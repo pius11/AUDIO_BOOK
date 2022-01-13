@@ -1,8 +1,8 @@
-package com.dimata.demo.sekolah.demo_data_siswa.core.exception;
+package com.dimata.demo.audiobook.demo_audio_book.core.exception;
 
 import java.time.LocalDateTime;
 
-import com.dimata.demo.sekolah.demo_data_siswa.core.util.FormatUtil;
+import com.dimata.demo.audiobook.demo_audio_book.core.util.FormatUtil;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

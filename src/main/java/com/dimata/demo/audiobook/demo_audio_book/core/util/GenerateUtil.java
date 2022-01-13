@@ -1,4 +1,4 @@
-package com.dimata.demo.sekolah.demo_data_siswa.core.util;
+package com.dimata.demo.audiobook.demo_audio_book.core.util;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.data.domain.Sort;

@@ -1,11 +1,11 @@
-package com.dimata.demo.sekolah.demo_data_siswa.core.search;
+package com.dimata.demo.audiobook.demo_audio_book.core.search;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import com.dimata.demo.sekolah.demo_data_siswa.core.util.CheckUtil;
-import com.dimata.demo.sekolah.demo_data_siswa.core.util.GenerateUtil;
+import com.dimata.demo.audiobook.demo_audio_book.core.util.CheckUtil;
+import com.dimata.demo.audiobook.demo_audio_book.core.util.GenerateUtil;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

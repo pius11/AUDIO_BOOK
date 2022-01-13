@@ -1,4 +1,4 @@
-package com.dimata.demo.sekolah.demo_data_siswa.core.util;
+package com.dimata.demo.audiobook.demo_audio_book.core.util;
 
 @FunctionalInterface
 public interface Mapper<T> {
