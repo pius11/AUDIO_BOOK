@@ -8,10 +8,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableAutoConfiguration
 @EnableScheduling
-public class DemoDataSiswaApplication {
+public class DemoAudioBookApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoDataSiswaApplication.class, args);
+		SpringApplication.run(DemoAudioBookApplication.class, args);
 	}
 
 	// @Bean

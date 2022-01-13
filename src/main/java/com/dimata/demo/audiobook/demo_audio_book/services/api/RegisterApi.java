@@ -18,7 +18,7 @@ import reactor.core.publisher.Mono;
 public class RegisterApi {
     
     @Autowired
-    private RegisterCrude dataSiswaCrude;
+    private RegisterCrude RegisterCrude;
     @Autowired
 	private R2dbcEntityTemplate template;
 
@@ -28,7 +28,7 @@ public class RegisterApi {
             RegisterCrude.Option option = RegisterCrude.initOption(f.convertNewRecord());
             return Mono.just(option);
         })
-        .flatMap(dataSiswaCrude::create);
+        .flatMap(RegisterCrude::create);
     }
 
     public Flux<Register> getAllRegister(CommonParam param) {
@@ -61,6 +61,6 @@ public class RegisterApi {
                 RegisterCrude.Option option = RegisterCrude.initOption(d.convertNewRecord());
                 return Mono.just(option);
             })
-            .flatMap(dataSiswaCrude::updateRecord);
+            .flatMap(RegisterCrude::updateRecord);
     }
 }

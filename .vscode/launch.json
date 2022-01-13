@@ -14,16 +14,16 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch DemoDataSiswaApplication",
+            "name": "Launch DemoaudioBookApplication",
             "request": "launch",
-            "mainClass": "com.dimata.demo.audiobook.demo_audio_book.DemoDataSiswaApplication",
+            "mainClass": "com.dimata.demo.audiobook.demo_audio_book.DemoAudioBookApplication",
             "projectName": "demo_data_siswa"
         },
         {
             "type": "java",
-            "name": "Launch DemoDataSiswaApplication",
+            "name": "Launch DemoAudioBookApplication",
             "request": "launch",
-            "mainClass": "com.dimata.demo.sekolah.demo_data_siswa.DemoDataSiswaApplication",
+            "mainClass": "com.dimata.demo.sekolah.demo_data_siswa.DemoAudioBookApplication",
             "projectName": "demo_data_siswa"
         }
     ]

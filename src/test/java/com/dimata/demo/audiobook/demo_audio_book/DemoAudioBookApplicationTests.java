@@ -1,10 +1,10 @@
-package com.dimata.demo.sekolah.demo_data_siswa;
+package com.dimata.demo.audiobook.demo_audio_book;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoDataSiswaApplicationTests {
+class DemoAudioBookApplicationTests {
 
 	@Test
 	void contextLoads() {

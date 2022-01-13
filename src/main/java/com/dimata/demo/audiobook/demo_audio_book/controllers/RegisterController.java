@@ -23,28 +23,28 @@ import reactor.core.publisher.Mono;
 public class RegisterController {
 
     @Autowired
-    private RegisterApi dataSiswaApi;
+    private RegisterApi RegisterApi;
 
     private static final String BASE_URL = "/maintainer/v1";
 
     @PostMapping(path = BASE_URL + "/register", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Mono<Register> maintainerAddRegister(@RequestBody RegisterForm form) {
-        return dataSiswaApi.createRegister(form);
+        return RegisterApi.createRegister(form);
     }
 
     @GetMapping(path = BASE_URL + "/register")
     public Flux<Register> maintainerGetAllRegister(CommonParam param) {
-        return dataSiswaApi.getAllRegister(param);
+        return RegisterApi.getAllRegister(param);
     }
 
     @GetMapping(path = BASE_URL + "/register/{register_code}")
     public Mono<Register> maintainerGetRegister(@PathVariable("regiser_code") Long register_code) {
-        return dataSiswaApi.getRegister(register_code);
+        return RegisterApi.getRegister(register_code);
     }
 
     @PutMapping(path = BASE_URL + "/register/{email}")
     public Mono<Register> maintainerUpdateRegister(@PathVariable("register_code") Long register_code, @RequestBody RegisterForm form) {
-        return dataSiswaApi.updateRegister(register_code, form);
+        return RegisterApi.updateRegister(register_code, form);
     }
 
 
