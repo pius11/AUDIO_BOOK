@@ -1,8 +1,7 @@
 package com.dimata.demo.audiobook.demo_audio_book.services.dbHandler;
 
 import com.dimata.demo.audiobook.demo_audio_book.core.api.DbHandlerBase;
-import com.dimata.demo.audiobook.demo_audio_book.models.table.Register;
-import com.dimata.demo.audiobook.demo_audio_book.services.repo.RegisterRepo;
+import com.dimata.demo.audiobook.demo_audio_book.models.table.DataBuku;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.r2dbc.repository.R2dbcRepository;
@@ -14,13 +13,17 @@ import reactor.core.publisher.Mono;
 
 @Component
 @EqualsAndHashCode(callSuper = true)
-public class RegisterDbHandler extends DbHandlerBase<Register, Long> {
-    
+public class DataBukuDbhandler extends DbHandlerBase<DataBuku, Long>{
     @Autowired
-    private RegisterRepo repo;
+    private R2dbcRepository<DataBuku, Long> repo;
 
     @Override
-    protected Mono<Register> setGenerateId(Register record) {
+    protected R2dbcRepository<DataBuku, Long> getRepository() {
+        return repo;
+    }
+
+    @Override
+    protected Mono<DataBuku> setGenerateId(DataBuku record) {
         return Mono.just(record)
             .map(z -> {
                 long id = getGenerateUtil().generateOID();
@@ -30,7 +33,7 @@ public class RegisterDbHandler extends DbHandlerBase<Register, Long> {
     }
 
     @Override
-    protected Flux<Register> setGenerateIdBatch(Flux<Register> records) {
+    protected Flux<DataBuku> setGenerateIdBatch(Flux<DataBuku> records) {
         return records
             .map(rec -> {
                 long id = getGenerateUtil().generateOID();
@@ -38,13 +41,4 @@ public class RegisterDbHandler extends DbHandlerBase<Register, Long> {
                 return rec;
             });
     }
-
-    @Override
-    protected R2dbcRepository<Register, Long> getRepository() {
-        
-        return repo;
-    }
-
-    
-    
 }

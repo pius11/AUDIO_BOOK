@@ -1,7 +1,7 @@
 package com.dimata.demo.audiobook.demo_audio_book.services.crude;
 
-import com.dimata.demo.audiobook.demo_audio_book.models.table.Register;
-import com.dimata.demo.audiobook.demo_audio_book.services.dbHandler.RegisterDbHandler;
+import com.dimata.demo.audiobook.demo_audio_book.models.table.DataBuku;
+import com.dimata.demo.audiobook.demo_audio_book.services.dbHandler.DataBukuDbhandler;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,22 +13,21 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Component
-public class RegisterCrude {
-    
+public class DataBukuCrude {
     @Autowired
-    private RegisterDbHandler RegisterDbHandler;
+    private DataBukuDbhandler DataBukuDbHandler;
 
-    public  Option initOption(Register record) {
+    public Option initOption(DataBuku record) {
         return new Option(record);
     }
 
-    public Mono<Register> create(Option option) {
+    public Mono<DataBuku> create(Option option) {
         return Mono.just(option)
             .flatMap(this::createRecord)
             .map(o -> o.getRecord());
     }
 
-    public Flux<Register> createInBatch(Flux<Option> option) {
+    public Flux<DataBuku> createInBatch(Flux<Option> option) {
 		return option
 			.flatMap(this::create);
 	}
@@ -36,23 +35,23 @@ public class RegisterCrude {
     private Mono<Option> createRecord(Option option) {
 		return Mono.just(option)
 			.flatMap(o -> {
-				Mono<Register> savedRecord = RegisterDbHandler.create(o.getRecord());
+				Mono<DataBuku> savedRecord = DataBukuDbHandler.create(o.getRecord());
 				
 				return Mono.zip(savedRecord, Mono.just(o))
 					.map(z -> z.getT2().setIdRecord(z.getT1().getId()));
 			});
 	}
 
-    public Mono<Register> updateRecord(Option option) {
-        return RegisterDbHandler.updateOnly(option.getRecord(), option.getRecord().getId());
+    public Mono<DataBuku> updateRecord(Option option) {
+        return DataBukuDbHandler.update(option.getRecord(), option.getRecord().getId());
     }
 
     @Data
     @Setter(AccessLevel.NONE)
     public static class Option {
-        private final Register record;
+        private final DataBuku record;
         
-        public Option(Register record) {
+        public Option(DataBuku record) {
             this.record = record;
         }
 

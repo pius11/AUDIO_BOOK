@@ -28,8 +28,6 @@ public class DataUserControler {
 
     @PostMapping(path = BASE_URL + "/data_user", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Mono<DataUser> maintainerAddDataUser(@RequestBody DataUserForm form) {
-       
-
         return dataUserApi.createDataUser(form);
 
     }

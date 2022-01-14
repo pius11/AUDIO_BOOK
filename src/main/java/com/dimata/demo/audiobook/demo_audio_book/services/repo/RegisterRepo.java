@@ -6,7 +6,7 @@ import org.springframework.data.r2dbc.repository.R2dbcRepository;
 
 import reactor.core.publisher.Mono;
 
-public interface RegisterRepo extends R2dbcRepository<Register, String> {
+public interface RegisterRepo extends R2dbcRepository<Register, Long> {
     
-    Mono<Register> findById(String id);
+    Mono<Register> findById(Long id);
 }

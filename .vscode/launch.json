@@ -14,6 +14,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Java Program",
+            "request": "launch",
+            "mainClass": ""
+        },
+        {
+            "type": "java",
             "name": "Launch DemoaudioBookApplication",
             "request": "launch",
             "mainClass": "com.dimata.demo.audiobook.demo_audio_book.DemoAudioBookApplication",
@@ -23,7 +29,7 @@
             "type": "java",
             "name": "Launch DemoAudioBookApplication",
             "request": "launch",
-            "mainClass": "com.dimata.demo.sekolah.demo_data_siswa.DemoAudioBookApplication",
+            "mainClass": "com.dimata.demo.audiobook.demo_audio_book.DemoAudioBookApplication",
             "projectName": "demo_data_siswa"
         }
     ]
