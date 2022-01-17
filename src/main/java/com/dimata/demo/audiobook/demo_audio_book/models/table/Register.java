@@ -73,7 +73,7 @@ public class Register implements UpdateAvailable<Register>, Persistable<Long>{
 
         public Register build() {
             Register result = new Register();
-            
+            result.setId(id);
             result.setPassword(password);
             result.setBirthDate(birthDate);
             result.setEmail(email);

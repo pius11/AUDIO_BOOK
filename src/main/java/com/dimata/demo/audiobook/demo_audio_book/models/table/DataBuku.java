@@ -67,7 +67,7 @@ public class DataBuku implements UpdateAvailable<DataBuku>, Persistable <Long>{
 
         public DataBuku  build() {
             DataBuku  result = new DataBuku ();
-            
+            result.setId(id);
             result.setIsibuku(isibuku);
             result.setJudulbuku(judulbuku);
             return result;

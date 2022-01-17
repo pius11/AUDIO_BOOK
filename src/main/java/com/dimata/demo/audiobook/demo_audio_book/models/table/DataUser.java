@@ -81,7 +81,7 @@ public class DataUser implements UpdateAvailable<DataUser>, Persistable<Long>{
 
         public DataUser build() {
             DataUser result = new DataUser();
-            
+            result.setId(id);
             result.setBirthDate(birthDate);
             result.setEmail(email);
             result.setDisplayname(displayname);
