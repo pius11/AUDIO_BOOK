@@ -17,7 +17,7 @@ public class DataUserForm implements RecordAdapter<DataUser>{
     private Long id;
     private String email;
     private String displayname;
-    private String username;
+    private String ussername;
     private String phonenum;
 
     @JsonDeserialize(converter = DateDeserialize.class)
@@ -27,7 +27,7 @@ public class DataUserForm implements RecordAdapter<DataUser>{
         return DataUser.Builder.createNewRecord(email)
             .birthDate(birthDate)
             .displayname(displayname)
-            .username(username)
+            .ussername(ussername)
             .phonenum(phonenum)
             .id(id)
             .build();
@@ -38,7 +38,7 @@ public class DataUserForm implements RecordAdapter<DataUser>{
             .birthDate(birthDate)
             .email(email)
             .displayname(displayname)
-            .username(username)
+            .ussername(ussername)
             .phonenum(phonenum)
             .id(id)
             .build();

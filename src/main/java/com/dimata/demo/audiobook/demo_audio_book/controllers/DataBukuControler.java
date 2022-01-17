@@ -22,29 +22,27 @@ import reactor.core.publisher.Mono;
 @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 public class DataBukuControler {
     @Autowired
-    private DataBukuApi dataBukuApi;
+    private DataBukuApi DataBukuApi;
 
     private static final String BASE_URL = "/maintainer/v1";
 
     @PostMapping(path = BASE_URL + "/data_buku", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Mono<DataBuku> maintainerAddDataBuku(@RequestBody DataBukuForm form) {
-        return dataBukuApi.createDataBuku(form);
-
+        return DataBukuApi.createDataBuku(form);
     }
 
     @GetMapping(path = BASE_URL + "/data_buku")
-    public Flux<DataBuku> maintainerGetAlslDataBuku(CommonParam param) {
-        return dataBukuApi.getAllDataBuku(param);
+    public Flux<DataBuku> maintainerGetAllDataBuku(CommonParam param) {
+        return DataBukuApi.getAllDataBuku(param);
     }
 
     @GetMapping(path = BASE_URL + "/data_buku/{id_book}")
     public Mono<DataBuku> maintainerGetDataBuku(@PathVariable("id_book") Long id_book) {
-        
-        return dataBukuApi.getDataBuku(id_book);
+        return DataBukuApi.getDataBuku(id_book);
     }
 
-    @PutMapping(path = BASE_URL + "/data_buku/{id_book}")
-    public Mono<DataBuku> maintainerUpdateDataBuku(@PathVariable("id_book") long id_book, @RequestBody DataBukuForm form) {
-        return dataBukuApi.updateDataBuku(id_book, form);
+    @PutMapping(path = BASE_URL + "/DataBuku/{id_book}")
+    public Mono<DataBuku> maintainerUpdateDataBuku(@PathVariable("id_book") Long id_book, @RequestBody DataBukuForm form) {
+        return DataBukuApi.updateDataBuku(id_book, form);
     }
 }

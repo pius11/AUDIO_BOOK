@@ -38,9 +38,9 @@ public class DataUser implements UpdateAvailable<DataUser>, Persistable<Long>{
     public static final String TABLE_NAME = "data_user";
     public static final String ID_COL = "user_code";
     public static final String EMAIL_COL = "email";
+    public static final String PHONENUM_COL = "phonenum";
     public static final String DISPLAYNAME_COL = "displayname";
-    public static final String PHONENUM_COL = "phoneNum";
-    public static final String USERNAME_COL = "username";
+    public static final String USSERNAME_COL = "ussername";
     public static final String BIRTH_DATE_COL = "birth_date";
     
 
@@ -50,11 +50,10 @@ public class DataUser implements UpdateAvailable<DataUser>, Persistable<Long>{
 
         private Long  id;
         private String email;
-        private LocalDate birthDate;
-        private String displayname;
-        private String username;
         private String phonenum;
-
+        private String displayname;
+        private String ussername;
+        private LocalDate birthDate;
 
         @Setter(AccessLevel.PRIVATE)
         private boolean newRecord = false;
@@ -70,9 +69,10 @@ public class DataUser implements UpdateAvailable<DataUser>, Persistable<Long>{
                 .id(oldRecord.getId())
                 .birthDate(changeItOrNot(newRecord.getBirthDate(), oldRecord.getBirthDate()))
                 .displayname(changeItOrNot(newRecord.getDisplayname(), oldRecord.getDisplayname()))
-                .username(changeItOrNot(newRecord.getUsername(), oldRecord.getUsername()))
-                .phonenum(changeItOrNot(newRecord.getPhonenum(), oldRecord.getPhonenum()));
-
+                .email(changeItOrNot(newRecord.getEmail(), oldRecord.getEmail()))
+                .phonenum(changeItOrNot(newRecord.getPhonenum(), oldRecord.getPhonenum()))
+                .ussername(changeItOrNot(newRecord.getUssername(), oldRecord.getUssername()));
+                
         }
 
         public static Builder emptyBuilder() {
@@ -82,12 +82,11 @@ public class DataUser implements UpdateAvailable<DataUser>, Persistable<Long>{
         public DataUser build() {
             DataUser result = new DataUser();
             result.setId(id);
-            result.setBirthDate(birthDate);
-            result.setEmail(email);
             result.setDisplayname(displayname);
-            result.setUsername(username);
+            result.setUssername(ussername);
+            result.setBirthDate(birthDate);
             result.setPhonenum(phonenum);
-
+            result.setEmail(email);
             return result;
         }
     }
@@ -97,9 +96,8 @@ public class DataUser implements UpdateAvailable<DataUser>, Persistable<Long>{
     private Long id;
     private String email;
     private String displayname;
-    private String username;
     private String phonenum;
-
+    private String ussername;
     @JsonSerialize(converter = DateSerialize.class)
     private LocalDate birthDate;
     @Transient
@@ -112,15 +110,15 @@ public class DataUser implements UpdateAvailable<DataUser>, Persistable<Long>{
         var result = new DataUser();
         result.setId(ManipulateUtil.parseRow(row, ID_COL, Long.class));
         result.setEmail(ManipulateUtil.parseRow(row, EMAIL_COL, String.class));
-        result.setBirthDate(ManipulateUtil.parseRow(row, BIRTH_DATE_COL, LocalDate.class));
-        result.setDisplayname(ManipulateUtil.parseRow(row, DISPLAYNAME_COL, String.class));
-        result.setUsername(ManipulateUtil.parseRow(row, USERNAME_COL, String.class));
         result.setPhonenum(ManipulateUtil.parseRow(row, PHONENUM_COL, String.class));
-
+        result.setDisplayname(ManipulateUtil.parseRow(row, DISPLAYNAME_COL, String.class));
+        result.setUssername(ManipulateUtil.parseRow(row, USSERNAME_COL, String.class));
+        result.setBirthDate(ManipulateUtil.parseRow(row, BIRTH_DATE_COL, LocalDate.class));
         return result;
     }
 
     @Override
+    @JsonIgnore
     public boolean isNew() {
         if (id == null && insertId == null) {
             id = new GenerateUtil().generateOID();
@@ -136,4 +134,5 @@ public class DataUser implements UpdateAvailable<DataUser>, Persistable<Long>{
     public DataUser update(DataUser newData) {
         return Builder.updateBuilder(this, newData).build();
     }
+
 }

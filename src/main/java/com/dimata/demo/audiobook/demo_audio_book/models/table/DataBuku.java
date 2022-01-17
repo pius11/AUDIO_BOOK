@@ -31,8 +31,8 @@ import lombok.experimental.Accessors;
 public class DataBuku implements UpdateAvailable<DataBuku>, Persistable <Long>{
     public static final String TABLE_NAME = "data_buku ";
     public static final String ID_COL = "id_book";
-    public static final String JUDUL_BUKU_COL = "judul_buku";
-    public static final String ISI_BUKU_COL = "isi_buku";
+    public static final String JUDUL_BUKU_COL = "judulbuku";
+    public static final String ISI_BUKU_COL = "isibuku";
     
 
     @Accessors(fluent = true)

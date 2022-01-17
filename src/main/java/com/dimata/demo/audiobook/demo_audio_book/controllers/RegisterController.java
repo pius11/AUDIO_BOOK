@@ -42,7 +42,7 @@ public class RegisterController {
         return RegisterApi.getRegister(register_code);
     }
 
-    @PutMapping(path = BASE_URL + "/register/{email}")
+    @PutMapping(path = BASE_URL + "/register/{register_code}")
     public Mono<Register> maintainerUpdateRegister(@PathVariable("register_code") Long register_code, @RequestBody RegisterForm form) {
         return RegisterApi.updateRegister(register_code, form);
     }

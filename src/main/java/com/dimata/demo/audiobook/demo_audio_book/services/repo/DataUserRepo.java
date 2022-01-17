@@ -7,6 +7,6 @@ import org.springframework.data.r2dbc.repository.R2dbcRepository;
 import reactor.core.publisher.Mono;
 
 public interface DataUserRepo extends R2dbcRepository<DataUser, Long> {
-    Mono<DataUser> findById(long id);
     
+    Mono<DataUser> findById(Long id);
 }
