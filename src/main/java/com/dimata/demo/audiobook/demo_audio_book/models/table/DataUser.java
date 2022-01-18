@@ -118,7 +118,8 @@ public class DataUser implements UpdateAvailable<DataUser>, Persistable<Long>{
     }
 
     @Override
-    @JsonIgnore
+    //@JsonIgnore
+    
     public boolean isNew() {
         if (id == null && insertId == null) {
             id = new GenerateUtil().generateOID();

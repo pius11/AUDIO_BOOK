@@ -19,7 +19,6 @@ public class DataUserForm implements RecordAdapter<DataUser>{
     private String displayname;
     private String ussername;
     private String phonenum;
-
     @JsonDeserialize(converter = DateDeserialize.class)
     private LocalDate birthDate;
     @Override

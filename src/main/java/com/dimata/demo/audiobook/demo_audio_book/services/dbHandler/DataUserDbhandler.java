@@ -2,6 +2,7 @@ package com.dimata.demo.audiobook.demo_audio_book.services.dbHandler;
 
 import com.dimata.demo.audiobook.demo_audio_book.core.api.DbHandlerBase;
 import com.dimata.demo.audiobook.demo_audio_book.models.table.DataUser;
+import com.dimata.demo.audiobook.demo_audio_book.services.repo.DataUserRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.r2dbc.repository.R2dbcRepository;
@@ -15,12 +16,7 @@ import reactor.core.publisher.Mono;
 @EqualsAndHashCode(callSuper = true)
 public class DataUserDbhandler extends DbHandlerBase<DataUser, Long>{
     @Autowired
-    private R2dbcRepository<DataUser, Long> repo;
-
-    @Override
-    protected R2dbcRepository<DataUser, Long> getRepository() {
-        return repo;
-    }
+    private DataUserRepo repo;
 
     @Override
     protected Mono<DataUser> setGenerateId(DataUser record) {
@@ -40,5 +36,10 @@ public class DataUserDbhandler extends DbHandlerBase<DataUser, Long>{
                 rec.setInsertId(id);
                 return rec;
             });
+    }
+
+    @Override
+    protected R2dbcRepository<DataUser, Long> getRepository() {
+        return repo;
     }
 }
