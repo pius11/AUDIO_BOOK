@@ -39,6 +39,7 @@ public class DataUser implements UpdateAvailable<DataUser>, Persistable<Long>{
     public static final String ID_COL = "user_code";
     public static final String EMAIL_COL = "email";
     public static final String PHONENUM_COL = "phonenum";
+    public static final String IMAGE_COL = "image";
     public static final String DISPLAYNAME_COL = "displayname";
     public static final String USSERNAME_COL = "ussername";
     public static final String BIRTH_DATE_COL = "birth_date";
@@ -53,6 +54,7 @@ public class DataUser implements UpdateAvailable<DataUser>, Persistable<Long>{
         private String phonenum;
         private String displayname;
         private String ussername;
+        private String image;
         private LocalDate birthDate;
 
         @Setter(AccessLevel.PRIVATE)
@@ -71,6 +73,7 @@ public class DataUser implements UpdateAvailable<DataUser>, Persistable<Long>{
                 .displayname(changeItOrNot(newRecord.getDisplayname(), oldRecord.getDisplayname()))
                 .email(changeItOrNot(newRecord.getEmail(), oldRecord.getEmail()))
                 .phonenum(changeItOrNot(newRecord.getPhonenum(), oldRecord.getPhonenum()))
+                .image(changeItOrNot(newRecord.getImage(), oldRecord.getImage()))
                 .ussername(changeItOrNot(newRecord.getUssername(), oldRecord.getUssername()));
                 
         }
@@ -86,6 +89,7 @@ public class DataUser implements UpdateAvailable<DataUser>, Persistable<Long>{
             result.setUssername(ussername);
             result.setBirthDate(birthDate);
             result.setPhonenum(phonenum);
+            result.setImage(image);
             result.setEmail(email);
             return result;
         }
@@ -97,6 +101,7 @@ public class DataUser implements UpdateAvailable<DataUser>, Persistable<Long>{
     private String email;
     private String displayname;
     private String phonenum;
+    private String image;
     private String ussername;
     @JsonSerialize(converter = DateSerialize.class)
     private LocalDate birthDate;
@@ -113,6 +118,7 @@ public class DataUser implements UpdateAvailable<DataUser>, Persistable<Long>{
         result.setPhonenum(ManipulateUtil.parseRow(row, PHONENUM_COL, String.class));
         result.setDisplayname(ManipulateUtil.parseRow(row, DISPLAYNAME_COL, String.class));
         result.setUssername(ManipulateUtil.parseRow(row, USSERNAME_COL, String.class));
+        result.setImage(ManipulateUtil.parseRow(row, IMAGE_COL, String.class));
         result.setBirthDate(ManipulateUtil.parseRow(row, BIRTH_DATE_COL, LocalDate.class));
         return result;
     }

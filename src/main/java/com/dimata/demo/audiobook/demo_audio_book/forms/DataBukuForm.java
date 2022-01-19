@@ -12,12 +12,15 @@ public class DataBukuForm implements RecordAdapter<DataBuku> {
     private Long id;
     private String judulbuku;
     private String isibuku;
+    private String image;
+        
     
     @Override
     public DataBuku convertNewRecord() {
         return DataBuku.Builder.createNewRecord(judulbuku)
             
             .isibuku(isibuku)
+            .image(image)
             .id(id)
             .build();
     }
@@ -26,6 +29,7 @@ public class DataBukuForm implements RecordAdapter<DataBuku> {
         return DataBuku .Builder.emptyBuilder()
             
             .judulbuku(judulbuku)
+            .image(image)
             .isibuku(isibuku)
             .id(id)
             .build();

@@ -19,6 +19,7 @@ public class DataUserForm implements RecordAdapter<DataUser>{
     private String displayname;
     private String ussername;
     private String phonenum;
+    private String image;
     @JsonDeserialize(converter = DateDeserialize.class)
     private LocalDate birthDate;
     @Override
@@ -28,6 +29,7 @@ public class DataUserForm implements RecordAdapter<DataUser>{
             .displayname(displayname)
             .ussername(ussername)
             .phonenum(phonenum)
+            .image(image)
             .id(id)
             .build();
     }
@@ -39,6 +41,7 @@ public class DataUserForm implements RecordAdapter<DataUser>{
             .displayname(displayname)
             .ussername(ussername)
             .phonenum(phonenum)
+            .image(image)
             .id(id)
             .build();
     }

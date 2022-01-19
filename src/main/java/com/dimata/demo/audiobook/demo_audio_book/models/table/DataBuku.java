@@ -32,6 +32,7 @@ public class DataBuku implements UpdateAvailable<DataBuku>, Persistable <Long>{
     public static final String TABLE_NAME = "data_buku ";
     public static final String ID_COL = "id_book";
     public static final String JUDUL_BUKU_COL = "judulbuku";
+    public static final String IMAGE_COL = "image";
     public static final String ISI_BUKU_COL = "isibuku";
     
 
@@ -41,6 +42,7 @@ public class DataBuku implements UpdateAvailable<DataBuku>, Persistable <Long>{
 
         private Long  id;
         private String judulbuku;
+        private String image;
         private String isibuku;
 
         @Setter(AccessLevel.PRIVATE)
@@ -57,6 +59,7 @@ public class DataBuku implements UpdateAvailable<DataBuku>, Persistable <Long>{
             return new Builder()
                 .id(oldRecord.getId())
                 .isibuku(changeItOrNot(newRecord.getIsibuku(), oldRecord.getIsibuku()))
+                .image(changeItOrNot(newRecord.getImage(), oldRecord.getImage()))
                 .judulbuku(changeItOrNot(newRecord.getJudulbuku(), oldRecord.getJudulbuku()));
                 
         }
@@ -69,6 +72,7 @@ public class DataBuku implements UpdateAvailable<DataBuku>, Persistable <Long>{
             DataBuku  result = new DataBuku ();
             result.setId(id);
             result.setIsibuku(isibuku);
+            result.setImage(image);
             result.setJudulbuku(judulbuku);
             return result;
         }
@@ -78,6 +82,7 @@ public class DataBuku implements UpdateAvailable<DataBuku>, Persistable <Long>{
     @Column(ID_COL)
     private Long id;
     private String judulbuku;
+    private String image;
     private String isibuku;
     @Transient
     @JsonIgnore
@@ -89,6 +94,7 @@ public class DataBuku implements UpdateAvailable<DataBuku>, Persistable <Long>{
         var result = new DataBuku ();
         result.setId(ManipulateUtil.parseRow(row, ID_COL, Long.class));
         result.setJudulbuku(ManipulateUtil.parseRow(row, JUDUL_BUKU_COL, String.class));
+        result.setImage(ManipulateUtil.parseRow(row, IMAGE_COL, String.class));
         result.setIsibuku(ManipulateUtil.parseRow(row, ISI_BUKU_COL, String.class));
         return result;
     }
