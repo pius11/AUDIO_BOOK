@@ -2,8 +2,10 @@ package com.dimata.demo.audiobook.demo_audio_book.services.api;
 import com.dimata.demo.audiobook.demo_audio_book.core.search.CommonParam;
 import com.dimata.demo.audiobook.demo_audio_book.core.search.SelectQBuilder;
 import com.dimata.demo.audiobook.demo_audio_book.core.search.WhereQuery;
+import com.dimata.demo.audiobook.demo_audio_book.forms.DataAll;
 import com.dimata.demo.audiobook.demo_audio_book.forms.UserMainForm;
 import com.dimata.demo.audiobook.demo_audio_book.models.table.UserMain;
+import com.dimata.demo.audiobook.demo_audio_book.services.crude.DataBukuCrude;
 import com.dimata.demo.audiobook.demo_audio_book.services.crude.UserMainCrude;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,8 @@ public class UserMainApi {
     @Autowired
     private UserMainCrude UserMainCrude;
     @Autowired
+    private DataBukuCrude bukuCrude;
+    @Autowired
 	private R2dbcEntityTemplate template;
 
     public Mono<UserMain> createUserMain(UserMainForm form) {
@@ -27,6 +31,17 @@ public class UserMainApi {
             return Mono.just(option);
         })
         .flatMap(UserMainCrude::create);
+    }
+
+    public Mono<UserMain> createRelation(DataAll form){
+        return Mono.just(form)
+            .flatMap(f -> {
+                return Mono.zip(Mono.just(f.getBuku()), Mono.just(f.getUserId()));
+            })
+            .flatMap(z -> {
+                DataBukuCrude.Option option = DataBukuCrude.initOption(z.getT1().convertNewRecord());
+                return Mono.zip(bukuCrude.create(option), Mono.just(z.getT2()))
+            })
     }
 
     public Flux<UserMain> getAllUserMain(CommonParam param) {

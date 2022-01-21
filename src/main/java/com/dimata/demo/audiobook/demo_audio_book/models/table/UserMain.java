@@ -27,7 +27,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserMain implements UpdateAvailable<UserMain>, Persistable <Long> {
-    public static final String TABLE_NAME = "data_buku ";
+    public static final String TABLE_NAME = "user_main ";
     public static final String ID_COL = "id_main";
     public static final String ID_BOOK_COL = "id_book";
     public static final String USER_CODE_COL = "user_code";

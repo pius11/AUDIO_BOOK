@@ -1,5 +1,6 @@
 package com.dimata.demo.audiobook.demo_audio_book.controllers;
 import com.dimata.demo.audiobook.demo_audio_book.core.search.CommonParam;
+import com.dimata.demo.audiobook.demo_audio_book.forms.DataAll;
 import com.dimata.demo.audiobook.demo_audio_book.forms.UserMainForm;
 import com.dimata.demo.audiobook.demo_audio_book.models.table.UserMain;
 import com.dimata.demo.audiobook.demo_audio_book.services.api.UserMainApi;
@@ -25,7 +26,7 @@ public class UserMainControler {
     private static final String BASE_URL = "/maintainer/v1";
 
     @PostMapping(path = BASE_URL + "/user_main", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Mono<UserMain> maintainerAddUserMain(@RequestBody UserMainForm form) {
+    public Mono<UserMain> maintainerAddUserMain(@RequestBody DataAll form) {
         return UserMainApi.createUserMain(form);
     }
 

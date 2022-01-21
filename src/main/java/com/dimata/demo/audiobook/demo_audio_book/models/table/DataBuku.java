@@ -34,6 +34,7 @@ public class DataBuku implements UpdateAvailable<DataBuku>, Persistable <Long>{
     public static final String JUDUL_BUKU_COL = "judulbuku";
     public static final String IMAGE_COL = "image";
     public static final String ISI_BUKU_COL = "isibuku";
+    public static final String PENGARANG_COL = "pengarang";
     
 
     @Accessors(fluent = true)
@@ -44,6 +45,7 @@ public class DataBuku implements UpdateAvailable<DataBuku>, Persistable <Long>{
         private String judulbuku;
         private String image;
         private String isibuku;
+        private String pengarang; 
 
         @Setter(AccessLevel.PRIVATE)
         private boolean newRecord = false;
@@ -60,6 +62,7 @@ public class DataBuku implements UpdateAvailable<DataBuku>, Persistable <Long>{
                 .id(oldRecord.getId())
                 .isibuku(changeItOrNot(newRecord.getIsibuku(), oldRecord.getIsibuku()))
                 .image(changeItOrNot(newRecord.getImage(), oldRecord.getImage()))
+                .pengarang(changeItOrNot(newRecord.getPengarang(), oldRecord.getPengarang()))
                 .judulbuku(changeItOrNot(newRecord.getJudulbuku(), oldRecord.getJudulbuku()));
                 
         }
@@ -73,6 +76,7 @@ public class DataBuku implements UpdateAvailable<DataBuku>, Persistable <Long>{
             result.setId(id);
             result.setIsibuku(isibuku);
             result.setImage(image);
+            result.setPengarang(pengarang);
             result.setJudulbuku(judulbuku);
             return result;
         }
@@ -84,6 +88,7 @@ public class DataBuku implements UpdateAvailable<DataBuku>, Persistable <Long>{
     private String judulbuku;
     private String image;
     private String isibuku;
+    private String pengarang;
     @Transient
     @JsonIgnore
     private Long insertId;
@@ -95,6 +100,7 @@ public class DataBuku implements UpdateAvailable<DataBuku>, Persistable <Long>{
         result.setId(ManipulateUtil.parseRow(row, ID_COL, Long.class));
         result.setJudulbuku(ManipulateUtil.parseRow(row, JUDUL_BUKU_COL, String.class));
         result.setImage(ManipulateUtil.parseRow(row, IMAGE_COL, String.class));
+        result.setPengarang(ManipulateUtil.parseRow(row, PENGARANG_COL, String.class));
         result.setIsibuku(ManipulateUtil.parseRow(row, ISI_BUKU_COL, String.class));
         return result;
     }

@@ -13,6 +13,7 @@ public class DataBukuForm implements RecordAdapter<DataBuku> {
     private String judulbuku;
     private String isibuku;
     private String image;
+    private String pengarang;
         
     
     @Override
@@ -21,6 +22,7 @@ public class DataBukuForm implements RecordAdapter<DataBuku> {
             
             .isibuku(isibuku)
             .image(image)
+            .pengarang(pengarang)
             .id(id)
             .build();
     }
@@ -30,6 +32,7 @@ public class DataBukuForm implements RecordAdapter<DataBuku> {
             
             .judulbuku(judulbuku)
             .image(image)
+            .pengarang(pengarang)
             .isibuku(isibuku)
             .id(id)
             .build();
