@@ -7,5 +7,5 @@ import reactor.core.publisher.Mono;
 
 public interface DataBukuRepo extends R2dbcRepository<DataBuku, Long> {
     Mono<DataBuku> findById(long id);
-   
+
 }
