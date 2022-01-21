@@ -46,6 +46,4 @@ public class RegisterController {
     public Mono<Register> maintainerUpdateRegister(@PathVariable("register_code") Long register_code, @RequestBody RegisterForm form) {
         return RegisterApi.updateRegister(register_code, form);
     }
-
-
 }
