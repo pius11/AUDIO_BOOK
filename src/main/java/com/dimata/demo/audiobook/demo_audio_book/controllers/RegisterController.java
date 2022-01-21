@@ -38,7 +38,7 @@ public class RegisterController {
     }
 
     @GetMapping(path = BASE_URL + "/register/{register_code}")
-    public Mono<Register> maintainerGetRegister(@PathVariable("regiser_code") Long register_code) {
+    public Mono<Register> maintainerGetRegister(@PathVariable("register_code") Long register_code) {
         return RegisterApi.getRegister(register_code);
     }
 
