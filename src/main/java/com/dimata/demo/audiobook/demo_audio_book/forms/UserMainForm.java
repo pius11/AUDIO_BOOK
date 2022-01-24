@@ -10,7 +10,6 @@ public class UserMainForm implements RecordAdapter<UserMain> {
     private Long id;
     private Long idBook;
     private Long userCode;
-    private Long registerCode;
         
     
     @Override
@@ -18,7 +17,6 @@ public class UserMainForm implements RecordAdapter<UserMain> {
         return UserMain.Builder.createNewRecord()
             .idBook(idBook)
             .userCode(userCode)
-            .registerCode(registerCode)
             .id(id)
             .build();
     }
@@ -28,7 +26,6 @@ public class UserMainForm implements RecordAdapter<UserMain> {
             
             .idBook(idBook)
             .userCode(userCode)
-            .registerCode(registerCode)
             .id(id)
             .build();
     }
