@@ -12,8 +12,12 @@ public class DataBukuForm implements RecordAdapter<DataBuku> {
     private Long id;
     private String judulbuku;
     private String isibuku;
+    private String deskripsi;
     private String image;
     private String pengarang;
+    private String rating;
+    private String countRating;
+    private String genre;
         
     
     @Override
@@ -21,8 +25,12 @@ public class DataBukuForm implements RecordAdapter<DataBuku> {
         return DataBuku.Builder.createNewRecord(judulbuku)
             
             .isibuku(isibuku)
+            .deskripsi(deskripsi)
             .image(image)
             .pengarang(pengarang)
+            .rating(rating)
+            .countRating(countRating)
+            .genre(genre)
             .id(id)
             .build();
     }
@@ -34,6 +42,8 @@ public class DataBukuForm implements RecordAdapter<DataBuku> {
             .image(image)
             .pengarang(pengarang)
             .isibuku(isibuku)
+            .deskripsi(deskripsi)
+            .genre(genre)
             .id(id)
             .build();
     }

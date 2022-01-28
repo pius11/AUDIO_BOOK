@@ -19,8 +19,8 @@ import reactor.core.publisher.Mono;
 public class UserMainApi {
     @Autowired
     private UserMainCrude UserMainCrude;
-    @Autowired
-    private DataBukuCrude bukuCrude;
+    // @Autowired
+    // private DataBukuCrude bukuCrude;
     @Autowired
 	private R2dbcEntityTemplate template;
 
@@ -33,16 +33,16 @@ public class UserMainApi {
         .flatMap(UserMainCrude::create);
     }
 
-    public Mono<UserMain> createRelation(DataAll form){
-        return Mono.just(form)
-            .flatMap(f -> {
-                return Mono.zip(Mono.just(f.getBuku()), Mono.just(f.getUserId()));
-            })
-            .flatMap(z -> {
-                DataBukuCrude.Option option = DataBukuCrude.initOption(z.getT1().convertNewRecord());
-                return Mono.zip(bukuCrude.create(option), Mono.just(z.getT2()))
-            })
-    }
+    // public Mono<UserMain> createRelation(DataAll form){
+    //     return Mono.just(form)
+    //         .flatMap(f -> {
+    //             return Mono.zip(Mono.just(f.getBuku()), Mono.just(f.getUserId()));
+    //         })
+    //         .flatMap(z -> {
+    //             DataBukuCrude.Option option = DataBukuCrude.initOption(z.getT1().convertNewRecord());
+    //             return Mono.zip(bukuCrude.create(option), Mono.just(z.getT2()))
+    //         })
+    // }
 
     public Flux<UserMain> getAllUserMain(CommonParam param) {
         var sql = SelectQBuilder.builderWithCommonParam(UserMain.TABLE_NAME, param)

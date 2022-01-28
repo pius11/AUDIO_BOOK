@@ -43,7 +43,7 @@ public class DataUserControler {
         return dataUserApi.getDataUser(user_code);
     }
 
-    @PutMapping(path = BASE_URL + "/data_sekolah/{user_code}")
+    @PutMapping(path = BASE_URL + "/data_user/{user_code}")
     public Mono<DataUser> maintainerUpdateDataUser(@PathVariable("user_code") long user_code, @RequestBody DataUserForm form) {
         return dataUserApi.updateDataUser(user_code, form);
     }

@@ -31,7 +31,7 @@ public class UserMain implements UpdateAvailable<UserMain>, Persistable <Long> {
     public static final String ID_COL = "id_main";
     public static final String ID_BOOK_COL = "id_book";
     public static final String USER_CODE_COL = "user_code";
-    public static final String REGISTER_CODE_COL = "register_code";
+    
     
 
     @Accessors(fluent = true)
@@ -41,7 +41,7 @@ public class UserMain implements UpdateAvailable<UserMain>, Persistable <Long> {
         private Long  id;
         private Long idBook;
         private Long userCode;
-        private Long registerCode;
+        
 
         @Setter(AccessLevel.PRIVATE)
         private boolean newRecord = false;
@@ -57,8 +57,8 @@ public class UserMain implements UpdateAvailable<UserMain>, Persistable <Long> {
             return new Builder()
                 .id(oldRecord.getId())
                 .idBook(changeItOrNot(newRecord.getIdBook(), oldRecord.getIdBook()))
-                .userCode(changeItOrNot(newRecord.getUserCode(), oldRecord.getUserCode()))
-                .registerCode(changeItOrNot(newRecord.getRegisterCode(), oldRecord.getRegisterCode()));
+                .userCode(changeItOrNot(newRecord.getUserCode(), oldRecord.getUserCode()));
+                
                 
         }
 
@@ -71,7 +71,7 @@ public class UserMain implements UpdateAvailable<UserMain>, Persistable <Long> {
             result.setId(id);
             result.setIdBook(idBook);
             result.setUserCode(userCode);
-            result.setRegisterCode(registerCode);
+            
             return result;
         }
     }
@@ -81,7 +81,7 @@ public class UserMain implements UpdateAvailable<UserMain>, Persistable <Long> {
     private Long id;
     private Long idBook;
     private Long userCode;
-    private Long registerCode;
+    
     @Transient
     @JsonIgnore
     private Long insertId;
@@ -93,7 +93,6 @@ public class UserMain implements UpdateAvailable<UserMain>, Persistable <Long> {
         result.setId(ManipulateUtil.parseRow(row, ID_COL, Long.class));
         result.setIdBook(ManipulateUtil.parseRow(row, ID_BOOK_COL, Long.class));
         result.setUserCode(ManipulateUtil.parseRow(row, USER_CODE_COL, Long.class));
-        result.setRegisterCode(ManipulateUtil.parseRow(row, USER_CODE_COL, Long.class));
         return result;
     }
 

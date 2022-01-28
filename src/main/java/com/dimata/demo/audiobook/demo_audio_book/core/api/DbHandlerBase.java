@@ -141,7 +141,7 @@ public abstract class DbHandlerBase<T, I> {
      * @return Record yang sudah disimpan.
      * @see #createOnly(T)
      */
-    public   Mono<T> create(T record) {
+    public    Mono<T> create(T record) {
         return setGenerateId(record)
     		.flatMap(this::save)
     		.retryWhen(Retry.backoff(2, Duration.ofMillis(10))

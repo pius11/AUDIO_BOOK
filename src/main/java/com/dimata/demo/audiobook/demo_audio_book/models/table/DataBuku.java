@@ -33,8 +33,12 @@ public class DataBuku implements UpdateAvailable<DataBuku>, Persistable <Long>{
     public static final String ID_COL = "id_book";
     public static final String JUDUL_BUKU_COL = "judulbuku";
     public static final String IMAGE_COL = "image";
+    public static final String DESKRIPSI_COL ="deskripsi";
     public static final String ISI_BUKU_COL = "isibuku";
     public static final String PENGARANG_COL = "pengarang";
+    public static final String RATING_COL = "rating";
+    public static final String COUNT_RATING_COL = "count_rating";
+    public static final String GENRE_COL = "genre";
     
 
     @Accessors(fluent = true)
@@ -46,6 +50,11 @@ public class DataBuku implements UpdateAvailable<DataBuku>, Persistable <Long>{
         private String image;
         private String isibuku;
         private String pengarang; 
+        private String rating;
+        private String deskripsi;
+        private String countRating;
+        private String genre;
+
 
         @Setter(AccessLevel.PRIVATE)
         private boolean newRecord = false;
@@ -61,10 +70,13 @@ public class DataBuku implements UpdateAvailable<DataBuku>, Persistable <Long>{
             return new Builder()
                 .id(oldRecord.getId())
                 .isibuku(changeItOrNot(newRecord.getIsibuku(), oldRecord.getIsibuku()))
+                .deskripsi(changeItOrNot(newRecord.getDeskripsi(), oldRecord.getDeskripsi()))
                 .image(changeItOrNot(newRecord.getImage(), oldRecord.getImage()))
                 .pengarang(changeItOrNot(newRecord.getPengarang(), oldRecord.getPengarang()))
-                .judulbuku(changeItOrNot(newRecord.getJudulbuku(), oldRecord.getJudulbuku()));
-                
+                .judulbuku(changeItOrNot(newRecord.getJudulbuku(), oldRecord.getJudulbuku()))
+                .countRating(changeItOrNot(newRecord.getCountRating(), oldRecord.getCountRating()))
+                .genre(changeItOrNot(newRecord.getGenre(), oldRecord.getGenre()))
+                .rating(changeItOrNot(newRecord.getRating(), oldRecord.getRating()));
         }
 
         public static Builder emptyBuilder() {
@@ -75,9 +87,13 @@ public class DataBuku implements UpdateAvailable<DataBuku>, Persistable <Long>{
             DataBuku  result = new DataBuku ();
             result.setId(id);
             result.setIsibuku(isibuku);
+            result.setDeskripsi(deskripsi);
             result.setImage(image);
             result.setPengarang(pengarang);
             result.setJudulbuku(judulbuku);
+            result.setRating(rating);
+            result.setGenre(genre);
+            result.setCountRating(countRating);
             return result;
         }
     }
@@ -87,8 +103,12 @@ public class DataBuku implements UpdateAvailable<DataBuku>, Persistable <Long>{
     private Long id;
     private String judulbuku;
     private String image;
+    private String deskripsi;
     private String isibuku;
     private String pengarang;
+    private String rating;
+    private String countRating;
+    private String genre;
     @Transient
     @JsonIgnore
     private Long insertId;
@@ -102,6 +122,12 @@ public class DataBuku implements UpdateAvailable<DataBuku>, Persistable <Long>{
         result.setImage(ManipulateUtil.parseRow(row, IMAGE_COL, String.class));
         result.setPengarang(ManipulateUtil.parseRow(row, PENGARANG_COL, String.class));
         result.setIsibuku(ManipulateUtil.parseRow(row, ISI_BUKU_COL, String.class));
+        result.setDeskripsi(ManipulateUtil.parseRow(row, DESKRIPSI_COL, String.class));
+        result.setRating(ManipulateUtil.parseRow(row, RATING_COL, String.class));
+        result.setCountRating(ManipulateUtil.parseRow(row, COUNT_RATING_COL, String.class));
+        result.setGenre(ManipulateUtil.parseRow(row, GENRE_COL, String.class));
+        
+        
         return result;
     }
 

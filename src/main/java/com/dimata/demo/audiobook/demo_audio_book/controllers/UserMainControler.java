@@ -26,7 +26,7 @@ public class UserMainControler {
     private static final String BASE_URL = "/maintainer/v1";
 
     @PostMapping(path = BASE_URL + "/user_main", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Mono<UserMain> maintainerAddUserMain(@RequestBody DataAll form) {
+    public Mono<UserMain> maintainerAddUserMain(@RequestBody /*DataAll*/UserMainForm form) {
         return UserMainApi.createUserMain(form);
     }
 
