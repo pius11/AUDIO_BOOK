@@ -52,6 +52,17 @@ public class DataUserApi {
             .one();
     }
 
+    public Mono<DataUser> getDataUserByEmail(String email) {
+        var sql = SelectQBuilder.emptyBuilder(DataUser.TABLE_NAME)
+            .addWhere(WhereQuery.when(DataUser.EMAIL_COL).is(email))
+            .build();
+        System.out.println(sql);
+        return template.getDatabaseClient()
+            .sql(sql)
+            .map(DataUser::fromRow)
+            .one();
+    }
+
     public Mono<DataUser> updateDataUser(Long id, DataUserForm form) {
         return Mono.zip(Mono.just(id), Mono.just(form))
             .map(z -> {

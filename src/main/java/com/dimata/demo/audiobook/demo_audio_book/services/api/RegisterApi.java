@@ -1,10 +1,14 @@
 package com.dimata.demo.audiobook.demo_audio_book.services.api;
 
+import com.dimata.demo.audiobook.demo_audio_book.core.exception.DataNotFoundException;
 import com.dimata.demo.audiobook.demo_audio_book.core.search.CommonParam;
 import com.dimata.demo.audiobook.demo_audio_book.core.search.SelectQBuilder;
 import com.dimata.demo.audiobook.demo_audio_book.core.search.WhereQuery;
+import com.dimata.demo.audiobook.demo_audio_book.forms.CheckUserAndPasswordForm;
 import com.dimata.demo.audiobook.demo_audio_book.forms.RegisterForm;
+import com.dimata.demo.audiobook.demo_audio_book.models.table.DataUser;
 import com.dimata.demo.audiobook.demo_audio_book.models.table.Register;
+import com.dimata.demo.audiobook.demo_audio_book.models.table.UserMain;
 import com.dimata.demo.audiobook.demo_audio_book.services.crude.RegisterCrude;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +23,8 @@ public class RegisterApi {
     
     @Autowired
     private RegisterCrude RegisterCrude;
+    @Autowired
+    private DataUserApi dataUserApi;
     @Autowired
 	private R2dbcEntityTemplate template;
 
@@ -51,6 +57,18 @@ public class RegisterApi {
             .one();
     }
 
+    public Mono<Register> checkAvailableData(CheckUserAndPasswordForm form) {
+        var sql = SelectQBuilder.emptyBuilder(Register.TABLE_NAME)
+            .addWhere(WhereQuery.when(Register.EMAIL_COL).is(form.getEmail())
+                .and(WhereQuery.when(Register.PASSWORD_COL).is(form.getPassword())))
+            .build();
+        return template.getDatabaseClient()
+            .sql(sql)
+            .map(Register::fromRow)
+            .one()
+            .switchIfEmpty(Mono.error(new DataNotFoundException("User dan password salah")));
+    }
+
     public Mono<Register> updateRegister(Long id, RegisterForm form) {
         return Mono.zip(Mono.just(id), Mono.just(form))
             .map(z -> {
@@ -62,5 +80,9 @@ public class RegisterApi {
                 return Mono.just(option);
             })
             .flatMap(RegisterCrude::updateRecord);
+    }
+
+    public Mono<DataUser> getUserDetail(String email) {
+        return dataUserApi.getDataUserByEmail(email);
     }
 }

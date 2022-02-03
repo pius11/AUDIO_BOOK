@@ -1,9 +1,13 @@
 package com.dimata.demo.audiobook.demo_audio_book.controllers;
 
 import com.dimata.demo.audiobook.demo_audio_book.core.search.CommonParam;
+import com.dimata.demo.audiobook.demo_audio_book.forms.CheckUserAndPasswordForm;
 import com.dimata.demo.audiobook.demo_audio_book.forms.RegisterForm;
+import com.dimata.demo.audiobook.demo_audio_book.models.table.DataUser;
 import com.dimata.demo.audiobook.demo_audio_book.models.table.Register;
+import com.dimata.demo.audiobook.demo_audio_book.models.table.UserMain;
 import com.dimata.demo.audiobook.demo_audio_book.services.api.RegisterApi;
+import com.dimata.demo.audiobook.demo_audio_book.services.api.UserMainApi;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -45,5 +49,12 @@ public class RegisterController {
     @PutMapping(path = BASE_URL + "/register/{register_code}")
     public Mono<Register> maintainerUpdateRegister(@PathVariable("register_code") Long register_code, @RequestBody RegisterForm form) {
         return RegisterApi.updateRegister(register_code, form);
+    }
+
+    
+    @PostMapping(path = BASE_URL +"/user/login")
+    public Mono<DataUser> maintainerLoginUser(@RequestBody CheckUserAndPasswordForm form) {
+        return RegisterApi.checkAvailableData(form)
+            .flatMap(f -> RegisterApi.getUserDetail(f.getEmail()));
     }
 }
