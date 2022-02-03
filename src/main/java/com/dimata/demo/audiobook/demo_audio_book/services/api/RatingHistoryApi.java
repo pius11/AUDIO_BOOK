@@ -8,9 +8,11 @@ import lombok.var;
 import com.dimata.demo.audiobook.demo_audio_book.services.crude.RatingHistoryCrude;
 import org.springframework.data.r2dbc.core.R2dbcEntityTemplate;
 import com.dimata.demo.audiobook.demo_audio_book.models.table.RatingHistory;
+import com.dimata.demo.audiobook.demo_audio_book.core.search.CollumnQuery;
 import com.dimata.demo.audiobook.demo_audio_book.core.search.CommonParam;
 import com.dimata.demo.audiobook.demo_audio_book.core.search.SelectQBuilder;
 import com.dimata.demo.audiobook.demo_audio_book.core.search.WhereQuery;
+import com.dimata.demo.audiobook.demo_audio_book.core.util.ManipulateUtil;
 import com.dimata.demo.audiobook.demo_audio_book.forms.RatingHistoryForm;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -63,6 +65,22 @@ public class RatingHistoryApi {
                 return Mono.just(option);
             })
             .flatMap(RatingHistoryCrude::updateRecord);
+    }
+
+    public Mono<Double> getAvgRating(Long bookId) {
+        var sql = SelectQBuilder.emptyBuilder(RatingHistory.TABLE_NAME)
+            .addColumn(CollumnQuery.add("AVG(`" +RatingHistory.RATING_COL+"`)").as("TOTAL_RATING"))
+            .addWhere(WhereQuery.when(RatingHistory.ID_BOOK).is(bookId))
+            .build();
+        System.out.println(sql);
+        return template.getDatabaseClient()
+            .sql(sql)
+            .map(row -> {
+                Double result;
+                result = ManipulateUtil.parseRow(row, "TOTAL_RATING", Double.class);
+                return result;
+            })
+            .one();
     }
 
 }

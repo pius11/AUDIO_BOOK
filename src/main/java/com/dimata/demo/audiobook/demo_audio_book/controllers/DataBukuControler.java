@@ -2,6 +2,7 @@ package com.dimata.demo.audiobook.demo_audio_book.controllers;
 
 import com.dimata.demo.audiobook.demo_audio_book.core.search.CommonParam;
 import com.dimata.demo.audiobook.demo_audio_book.forms.DataBukuForm;
+import com.dimata.demo.audiobook.demo_audio_book.models.response.BookAndRating;
 import com.dimata.demo.audiobook.demo_audio_book.models.table.DataBuku;
 import com.dimata.demo.audiobook.demo_audio_book.services.api.DataBukuApi;
 
@@ -44,5 +45,10 @@ public class DataBukuControler {
     @PutMapping(path = BASE_URL + "/DataBuku/{id_book}")
     public Mono<DataBuku> maintainerUpdateDataBuku(@PathVariable("id_book") Long id_book, @RequestBody DataBukuForm form) {
         return DataBukuApi.updateDataBuku(id_book, form);
+    }
+
+    @GetMapping(path = BASE_URL + "/rating/{bookId}")
+    public Mono<BookAndRating> maintainerGetBookAndRating(@PathVariable("bookId") Long bookId) {
+        return DataBukuApi.getBookAndRating(bookId);
     }
 }

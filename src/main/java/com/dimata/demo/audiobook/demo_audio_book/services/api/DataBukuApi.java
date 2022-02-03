@@ -4,6 +4,7 @@ import com.dimata.demo.audiobook.demo_audio_book.core.search.CommonParam;
 import com.dimata.demo.audiobook.demo_audio_book.core.search.SelectQBuilder;
 import com.dimata.demo.audiobook.demo_audio_book.core.search.WhereQuery;
 import com.dimata.demo.audiobook.demo_audio_book.forms.DataBukuForm;
+import com.dimata.demo.audiobook.demo_audio_book.models.response.BookAndRating;
 import com.dimata.demo.audiobook.demo_audio_book.models.table.DataBuku;
 import com.dimata.demo.audiobook.demo_audio_book.services.crude.DataBukuCrude;
 
@@ -18,6 +19,8 @@ import reactor.core.publisher.Mono;
 public class DataBukuApi {
     @Autowired
     private DataBukuCrude DataBukuCrude;
+    @Autowired
+    private RatingHistoryApi ratingHistoryApi;
     @Autowired
 	private R2dbcEntityTemplate template;
 
@@ -61,5 +64,21 @@ public class DataBukuApi {
                 return Mono.just(option);
             })
             .flatMap(DataBukuCrude::updateRecord);
+    }
+
+    public Mono<BookAndRating> getBookAndRating(Long bookId) {
+        return Mono.just(bookId)
+            .flatMap(this::getDataBuku)
+            .flatMap(f -> {
+                Mono<Double> rating = Mono.just(f.getId())
+                    .flatMap(b -> ratingHistoryApi.getAvgRating(b));
+                return Mono.zip(Mono.just(f), rating);
+            })
+            .map(z -> {
+                BookAndRating data = new BookAndRating();
+                data.setBook(z.getT1());
+                data.setAvgRating(z.getT2());
+                return data;
+            });
     }
 }
