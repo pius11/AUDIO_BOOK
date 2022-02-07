@@ -15,7 +15,6 @@ import org.springframework.data.domain.Persistable;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
-import ch.qos.logback.core.status.Status;
 import io.r2dbc.spi.Row;
 import lombok.AccessLevel;
 import lombok.Data;
