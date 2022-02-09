@@ -1,6 +1,6 @@
 package com.dimata.demo.audiobook.demo_audio_book.services.dbHandler;
 
-import java.nio.ByteBuffer;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -85,8 +85,7 @@ CollumnQuery.add(getColName(getColName(DataBuku.ID_COL))),
                 return rec;
             });
     }
-    public Mono<ByteBuffer> myDataBuffer =  DataBukuRepo.findById(id)
-.flatMap(doc -> Mono.just(ByteBuffer.wrap(doc.getFileBlobData())));
+    
     @Override
     protected R2dbcRepository<DataBuku, Long> getRepository() {
         
