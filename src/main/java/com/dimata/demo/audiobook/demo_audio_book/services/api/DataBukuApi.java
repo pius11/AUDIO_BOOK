@@ -1,6 +1,6 @@
 package com.dimata.demo.audiobook.demo_audio_book.services.api;
 
-import java.nio.ByteBuffer;
+
 
 import com.dimata.demo.audiobook.demo_audio_book.core.search.CommonParam;
 import com.dimata.demo.audiobook.demo_audio_book.core.search.SelectQBuilder;
@@ -9,7 +9,6 @@ import com.dimata.demo.audiobook.demo_audio_book.forms.DataBukuForm;
 import com.dimata.demo.audiobook.demo_audio_book.models.response.BookAndRating;
 import com.dimata.demo.audiobook.demo_audio_book.models.table.DataBuku;
 import com.dimata.demo.audiobook.demo_audio_book.services.crude.DataBukuCrude;
-import com.dimata.demo.audiobook.demo_audio_book.services.repo.DataBukuRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.r2dbc.core.R2dbcEntityTemplate;
@@ -85,6 +84,5 @@ public class DataBukuApi {
             });
         
     }
-    public Mono<ByteBuffer> myDataBuffer =  DataBukuRepo.findById(id)
-        .flatMap(DataBuku -> Mono.just(ByteBuffer.wrap(DataBuku.getFileBlobData())));
+
 }
